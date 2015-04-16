@@ -12,6 +12,9 @@ import bshields.istation.interfaces.ShelfSlot;
  */
 public class DefaultShelf implements Shelf {
 	private List<ShelfSlot> slots;
+	
+	public DefaultShelf() { this(new ArrayList<ShelfSlot>()); }
+	public DefaultShelf(List<ShelfSlot> slots) { this.slots = slots; }
 
 	@Override
 	public List<ShelfSlot> getSlots() { return new ArrayList<ShelfSlot>(slots); }
