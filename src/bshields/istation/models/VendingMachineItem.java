@@ -1,5 +1,54 @@
 package bshields.istation.models;
 
-public class VendingMachineItem {
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 
+/**
+ * Represents an item in the vending machine. Items do not track their own price, as the price is
+ * dependent upon the location in the vending machine it is place, rather than what the item is,
+ * and it is not possible for two items in the same slot (even two different items) to have
+ * different prices.
+ * 
+ * @author Brian
+ */
+public class VendingMachineItem {
+	private String name;
+	private Image sprite;
+	
+	/**
+	 * Creates a default vending machine item. The item's name will be the empty string, and
+	 * the item's sprite will be a 0x0px image.
+	 * 
+	 * @see #VendingMachineItem(String, Image)
+	 */
+	public VendingMachineItem() {
+		this("", new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB));
+	}
+	
+	/**
+	 * Creates a named vending machine item. The item's sprite will be a 0x0px image.
+	 * 
+	 * @param name the name of the item
+	 * @see #VendingMachineItem(String, Image)
+	 */
+	public VendingMachineItem(String name) {
+		this(name, new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB));
+	}
+	
+	/**
+	 * Creates a fully-defined vending machine item.
+	 * 
+	 * @param name the name of the item
+	 * @param sprite an image to represent the item in a graphical interface
+	 */
+	public VendingMachineItem(String name, Image sprite) {
+		this.name = name;
+		this.sprite = sprite;
+	}
+	
+	public String getName() { return this.name; }
+	public void setName(String name) { this.name = name; }
+	
+	public Image getSprite() { return this.sprite; }
+	public void setSprite(Image sprite) { this.sprite = sprite; }
 }
