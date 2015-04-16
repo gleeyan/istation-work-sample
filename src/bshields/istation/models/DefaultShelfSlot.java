@@ -1,6 +1,7 @@
 package bshields.istation.models;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -84,4 +85,12 @@ public class DefaultShelfSlot implements ShelfSlot {
 	public String getKeyCode() { return keyCode; }
 	@Override
 	public void steKeyCode(String keyCode) { this.keyCode = keyCode; }
+	
+	@Override
+	public String toString() {
+		return String.format("[(%s) %s :: %s]  ",
+			getKeyCode(),
+			NumberFormat.getCurrencyInstance().format(getPrice().toString()),
+			peek().getName());
+	}
 }

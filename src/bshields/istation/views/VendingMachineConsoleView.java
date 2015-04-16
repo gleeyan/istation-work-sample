@@ -21,12 +21,7 @@ public class VendingMachineConsoleView implements VendingMachineView {
 	public void showVendingMachine() {
 		machine.getShelves().stream()
 			.forEach(shelf -> {
-				shelf.getSlots().stream().forEach(slot -> {
-					out.printf("[(%s) %s :: %s]  ",
-						slot.getKeyCode(),
-						NumberFormat.getCurrencyInstance().format(slot.getPrice().toString()),
-						slot.peek().getName());
-				});
+				shelf.getSlots().stream().forEach(slot -> out.print(slot));
 				out.println();
 			});
 	}
