@@ -7,6 +7,11 @@ import java.text.NumberFormat;
 import bshields.istation.interfaces.VendingMachine;
 import bshields.istation.interfaces.VendingMachineView;
 
+/**
+ * {@inheritDoc}
+ * 
+ * @author Brian
+ */
 public class VendingMachineConsoleView implements VendingMachineView {
 	private VendingMachine machine;
 	
