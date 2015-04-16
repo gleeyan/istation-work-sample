@@ -1,5 +1,6 @@
 package bshields.istation.interfaces;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -45,4 +46,10 @@ public interface VendingMachine {
 	 * @see #removeShelf(Shelf)
 	 */
 	Shelf removeShelf(int index);
+	
+	BigDecimal getCash();
+	void addCash(BigDecimal cash);
+	BigDecimal refundCash();
+	void chargeCash(BigDecimal charge);
+	BigDecimal getReserve();
 }

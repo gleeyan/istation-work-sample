@@ -1,5 +1,6 @@
 package bshields.istation.models;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,15 @@ import bshields.istation.interfaces.VendingMachine;
  */
 public class DefaultVendingMachine implements VendingMachine {
 	private List<Shelf> shelves;
+	private BigDecimal cash;
+	private BigDecimal reserve;
+	
+	public DefaultVendingMachine(BigDecimal reserve) { this(reserve, new ArrayList<Shelf>()); }
+	public DefaultVendingMachine(BigDecimal reserve, List<Shelf> shelves) {
+		this.shelves = shelves;
+		this.reserve = reserve;
+		this.cash = BigDecimal.ZERO;
+	}
 
 	@Override
 	public List<Shelf> getShelves() { return new ArrayList<Shelf>(shelves); }
@@ -28,4 +38,27 @@ public class DefaultVendingMachine implements VendingMachine {
 
 	@Override
 	public Shelf removeShelf(int index) { return shelves.remove(index); }
+
+	@Override
+	public BigDecimal getCash() { return cash; }
+
+	@Override
+	public void addCash(BigDecimal cash) {
+		this.cash.add(cash);
+		reserve.add(cash);
+	}
+
+	@Override
+	public BigDecimal refundCash() {
+		BigDecimal refund = new BigDecimal(cash.doubleValue());
+		reserve.subtract(cash);
+		cash = BigDecimal.ZERO;
+		return refund;
+	}
+
+	@Override
+	public BigDecimal getReserve() { return reserve; }
+	
+	@Override
+	public void chargeCash(BigDecimal charge) { cash.subtract(charge); }
 }
