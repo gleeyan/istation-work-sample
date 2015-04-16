@@ -48,9 +48,6 @@ public interface ShelfSlot {
 	BigDecimal getPrice();
 	void setPrice(BigDecimal price);
 	
-	int getWidth();
-	void setWidth(int width);
-	
 	String getKeyCode();
-	void steKeyCode(String keyCode);
+	void setKeyCode(String keyCode);
 }
