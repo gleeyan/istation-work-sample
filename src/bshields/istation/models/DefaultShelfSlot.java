@@ -6,6 +6,11 @@ import java.util.List;
 import bshields.istation.interfaces.ShelfSlot;
 import bshields.istation.interfaces.VendingMachineItem;
 
+/**
+ * {@inheritDoc}
+ * 
+ * @author Brian
+ */
 public class DefaultShelfSlot implements ShelfSlot {
 	private LinkedList<VendingMachineItem> items;
 	private int price;
