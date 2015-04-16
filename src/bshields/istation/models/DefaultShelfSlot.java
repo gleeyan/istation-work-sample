@@ -1,5 +1,6 @@
 package bshields.istation.models;
 
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import bshields.istation.interfaces.VendingMachineItem;
  */
 public class DefaultShelfSlot implements ShelfSlot {
 	private LinkedList<VendingMachineItem> items;
-	private int price;
+	private BigDecimal price;
 	private int width;
 	private String keyCode;
 	
@@ -23,7 +24,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	 * @param keyCode the code for ordering an item from this slot
 	 * @see #DefaultShelfSlot(String, int, int, List)
 	 */
-	public DefaultShelfSlot(String keyCode) { this(keyCode, 0, 0, new LinkedList<VendingMachineItem>()); }
+	public DefaultShelfSlot(String keyCode) { this(keyCode, BigDecimal.ZERO, 0, new LinkedList<VendingMachineItem>()); }
 	/**
 	 * Creates an empty shelf slot with 0 width and a specified price
 	 * 
@@ -31,7 +32,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	 * @param price the price for items in this slot
 	 * @see #DefaultShelfSlot(String, int, int, List)
 	 */
-	public DefaultShelfSlot(String keyCode, int price) { this(keyCode, price, 0, new LinkedList<VendingMachineItem>()); }
+	public DefaultShelfSlot(String keyCode, BigDecimal price) { this(keyCode, price, 0, new LinkedList<VendingMachineItem>()); }
 	/**
 	 * Creates an empty shelf slot with the specified width and price
 	 * 
@@ -40,7 +41,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	 * @param width the width of this slot
 	 * @see #DefaultShelfSlot(String, int, int, List)
 	 */
-	public DefaultShelfSlot(String keyCode, int price, int width) { this(keyCode, price, width, new LinkedList<VendingMachineItem>()); }
+	public DefaultShelfSlot(String keyCode, BigDecimal price, int width) { this(keyCode, price, width, new LinkedList<VendingMachineItem>()); }
 	/**
 	 * Creates a pre-filled shelf slot
 	 * 
@@ -49,7 +50,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	 * @param width the width of this slot
 	 * @param items a collection of items to initially fill this slot with
 	 */
-	public DefaultShelfSlot(String keyCode, int price, int width, List<VendingMachineItem> items) {
+	public DefaultShelfSlot(String keyCode, BigDecimal price, int width, List<VendingMachineItem> items) {
 		this.keyCode = keyCode;
 		this.price = price;
 		this.width = width;
@@ -70,9 +71,9 @@ public class DefaultShelfSlot implements ShelfSlot {
 	public VendingMachineItem peek() { return items.peek().newInstance(); }
 
 	@Override
-	public int getPrice() { return price; }
+	public BigDecimal getPrice() { return price; }
 	@Override
-	public void setPrice(int price) { this.price = price; }
+	public void setPrice(BigDecimal price) { this.price = price; }
 
 	@Override
 	public int getWidth() { return width; }
