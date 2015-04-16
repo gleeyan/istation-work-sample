@@ -2,8 +2,6 @@ package bshields.istation.views;
 
 import static java.lang.System.out;
 
-import java.text.NumberFormat;
-
 import bshields.istation.interfaces.VendingMachine;
 import bshields.istation.interfaces.VendingMachineView;
 
