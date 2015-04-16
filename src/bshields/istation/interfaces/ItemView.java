@@ -6,5 +6,5 @@ package bshields.istation.interfaces;
  * @author Brian
  */
 public interface ItemView {
-	void showItem();
+	void showItem(VendingMachineItem item);
 }
