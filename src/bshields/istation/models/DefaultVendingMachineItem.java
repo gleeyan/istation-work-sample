@@ -3,6 +3,8 @@ package bshields.istation.models;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
+import bshields.istation.interfaces.GraphicalVendingMachineItem;
+
 /**
  * Represents an item in the vending machine. Items do not track their own price, as the price is
  * dependent upon the location in the vending machine it is place, rather than what the item is,
@@ -11,7 +13,7 @@ import java.awt.image.BufferedImage;
  * 
  * @author Brian
  */
-public class VendingMachineItem {
+public class DefaultVendingMachineItem implements GraphicalVendingMachineItem {
 	private String name;
 	private Image sprite;
 	
@@ -21,7 +23,7 @@ public class VendingMachineItem {
 	 * 
 	 * @see #VendingMachineItem(String, Image)
 	 */
-	public VendingMachineItem() {
+	public DefaultVendingMachineItem() {
 		this("", new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB));
 	}
 	
@@ -31,7 +33,7 @@ public class VendingMachineItem {
 	 * @param name the name of the item
 	 * @see #VendingMachineItem(String, Image)
 	 */
-	public VendingMachineItem(String name) {
+	public DefaultVendingMachineItem(String name) {
 		this(name, new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB));
 	}
 	
@@ -41,7 +43,7 @@ public class VendingMachineItem {
 	 * @param name the name of the item
 	 * @param sprite an image to represent the item in a graphical interface
 	 */
-	public VendingMachineItem(String name, Image sprite) {
+	public DefaultVendingMachineItem(String name, Image sprite) {
 		this.name = name;
 		this.sprite = sprite;
 	}
