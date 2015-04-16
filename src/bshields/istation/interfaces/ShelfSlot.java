@@ -1,5 +1,7 @@
 package bshields.istation.interfaces;
 
+import java.math.BigDecimal;
+
 /**
  * Represents a slot on a vending machine's shelf. The slot holds items in the vending machine, and
  * all items in a slot cost the same.
@@ -43,8 +45,8 @@ public interface ShelfSlot {
 	 */
 	VendingMachineItem peek();
 	
-	int getPrice();
-	void setPrice(int price);
+	BigDecimal getPrice();
+	void setPrice(BigDecimal price);
 	
 	int getWidth();
 	void setWidth(int width);
