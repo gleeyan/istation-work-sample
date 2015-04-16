@@ -14,39 +14,16 @@ import bshields.istation.interfaces.VendingMachineItem;
  * 
  * @author Brian
  */
-public class DefaultVendingMachineItem implements GraphicalVendingMachineItem {
+public class DefaultVendingMachineItem implements VendingMachineItem {
 	private String name;
-	private Image sprite;
-	
-	/**
-	 * Creates a default vending machine item. The item's name will be the empty string, and
-	 * the item's sprite will be a 0x0px image.
-	 * 
-	 * @see #VendingMachineItem(String, Image)
-	 */
-	public DefaultVendingMachineItem() {
-		this("", new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB));
-	}
-	
-	/**
-	 * Creates a named vending machine item. The item's sprite will be a 0x0px image.
-	 * 
-	 * @param name the name of the item
-	 * @see #VendingMachineItem(String, Image)
-	 */
-	public DefaultVendingMachineItem(String name) {
-		this(name, new BufferedImage(0, 0, BufferedImage.TYPE_INT_RGB));
-	}
 	
 	/**
 	 * Creates a fully-defined vending machine item.
 	 * 
 	 * @param name the name of the item
-	 * @param sprite an image to represent the item in a graphical interface
 	 */
-	public DefaultVendingMachineItem(String name, Image sprite) {
+	public DefaultVendingMachineItem(String name) {
 		this.name = name;
-		this.sprite = sprite;
 	}
 
 	@Override
@@ -55,10 +32,5 @@ public class DefaultVendingMachineItem implements GraphicalVendingMachineItem {
 	public void setName(String name) { this.name = name; }
 
 	@Override
-	public Image getSprite() { return this.sprite; }
-	@Override
-	public void setSprite(Image sprite) { this.sprite = sprite; }
-
-	@Override
-	public VendingMachineItem newInstance() { return new DefaultVendingMachineItem(name, sprite); }
+	public VendingMachineItem newInstance() { return new DefaultVendingMachineItem(name); }
 }
