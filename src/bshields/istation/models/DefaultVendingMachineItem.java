@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 
 import bshields.istation.interfaces.GraphicalVendingMachineItem;
+import bshields.istation.interfaces.VendingMachineItem;
 
 /**
  * Represents an item in the vending machine. Items do not track their own price, as the price is
@@ -47,10 +48,17 @@ public class DefaultVendingMachineItem implements GraphicalVendingMachineItem {
 		this.name = name;
 		this.sprite = sprite;
 	}
-	
+
+	@Override
 	public String getName() { return this.name; }
+	@Override
 	public void setName(String name) { this.name = name; }
-	
+
+	@Override
 	public Image getSprite() { return this.sprite; }
+	@Override
 	public void setSprite(Image sprite) { this.sprite = sprite; }
+
+	@Override
+	public VendingMachineItem newInstance() { return new DefaultVendingMachineItem(name, sprite); }
 }
