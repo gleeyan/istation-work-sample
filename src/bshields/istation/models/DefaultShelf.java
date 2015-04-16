@@ -29,13 +29,4 @@ public class DefaultShelf implements Shelf {
 	@Override
 	public ShelfSlot removeSlot(int index) { return slots.remove(index); }
 
-	@Override
-	public int getWidth() { return slots.stream().mapToInt(s -> s.getWidth()).sum(); }
-
-	@Override
-	public int getHeight() { return height; }
-
-	@Override
-	public void setHeight(int height) { this.height = height; }
-
 }

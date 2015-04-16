@@ -42,13 +42,4 @@ public interface Shelf {
 	 * @see #removeSlot(ShelfSlot)
 	 */
 	ShelfSlot removeSlot(int index);
-	
-	/**
-	 * Gets the total width of the shelf. This will be the sum of all slots on the shelf.
-	 * @return the width of the shelf
-	 */
-	int getWidth();
-	
-	int getHeight();
-	void setHeight(int height);
 }
