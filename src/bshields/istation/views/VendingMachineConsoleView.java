@@ -24,7 +24,5 @@ public class VendingMachineConsoleView implements VendingMachineView {
 				});
 				out.println();
 			});
-						
 	}
-
 }
