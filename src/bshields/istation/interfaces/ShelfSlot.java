@@ -48,4 +48,7 @@ public interface ShelfSlot {
 	
 	int getWidth();
 	void setWidth(int width);
+	
+	String getKeyCode();
+	void steKeyCode(String keyCode);
 }
