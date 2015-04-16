@@ -3,7 +3,6 @@ package bshields.istation.models;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 
-import bshields.istation.interfaces.GraphicalVendingMachineItem;
 import bshields.istation.interfaces.VendingMachineItem;
 
 /**
