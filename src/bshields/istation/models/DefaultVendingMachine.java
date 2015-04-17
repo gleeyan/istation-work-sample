@@ -44,14 +44,14 @@ public class DefaultVendingMachine implements VendingMachine {
 
 	@Override
 	public void addCash(BigDecimal cash) {
-		this.cash.add(cash);
-		reserve.add(cash);
+		this.cash = this.cash.add(cash);
+		reserve = reserve.add(cash);
 	}
 
 	@Override
 	public BigDecimal refundCash() {
 		BigDecimal refund = new BigDecimal(cash.doubleValue());
-		reserve.subtract(cash);
+		reserve = reserve.subtract(cash);
 		cash = BigDecimal.ZERO;
 		return refund;
 	}
@@ -60,5 +60,5 @@ public class DefaultVendingMachine implements VendingMachine {
 	public BigDecimal getReserve() { return reserve; }
 	
 	@Override
-	public void chargeCash(BigDecimal charge) { cash.subtract(charge); }
+	public void chargeCash(BigDecimal charge) { cash = cash.subtract(charge); }
 }
