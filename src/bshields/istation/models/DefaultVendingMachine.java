@@ -19,7 +19,7 @@ public class DefaultVendingMachine implements VendingMachine {
 	
 	public DefaultVendingMachine(BigDecimal reserve) { this(reserve, new ArrayList<Shelf>()); }
 	public DefaultVendingMachine(BigDecimal reserve, List<Shelf> shelves) {
-		this.shelves = shelves;
+		this.shelves = new ArrayList<Shelf>(shelves);
 		this.reserve = reserve;
 		this.cash = BigDecimal.ZERO;
 	}
