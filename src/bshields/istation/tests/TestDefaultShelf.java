@@ -15,6 +15,11 @@ import bshields.istation.interfaces.ShelfSlot;
 import bshields.istation.models.DefaultShelf;
 import bshields.istation.models.DefaultShelfSlot;
 
+/**
+ * JUnit tests for {@link DefaultShelf}
+ * 
+ * @author Brian
+ */
 public class TestDefaultShelf {
 	private Shelf shelf;
 	private static List<ShelfSlot> slots;

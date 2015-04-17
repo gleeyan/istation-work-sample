@@ -19,10 +19,20 @@ import bshields.istation.models.DefaultVendingMachineItem;
 import bshields.istation.models.Message;
 import bshields.istation.views.VendingMachineConsoleView;
 
+/**
+ * An interactive console application which can be used to test most of the features of the various vending machine classes.
+ * 
+ * @author Brian
+ */
 public class CommandLineTest {
 	private static VendingMachineController controller;
 	private static Scanner in;
 	
+	/**
+	 * Program entry point
+	 * 
+	 * @param args command-line arguments; not used
+	 */
 	public static void main(String[] args) {
 		in = new Scanner(System.in);
 		

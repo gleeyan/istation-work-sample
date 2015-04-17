@@ -8,7 +8,7 @@ import bshields.istation.interfaces.Shelf;
 import bshields.istation.interfaces.VendingMachine;
 
 /**
- * {@inheritDoc}
+ * Default implementation of {@link VendingMachine}
  * 
  * @author Brian
  */
@@ -17,7 +17,25 @@ public class DefaultVendingMachine implements VendingMachine {
 	private BigDecimal cash;
 	private BigDecimal reserve;
 	
+	/**
+	 * Creates an empty vending machine
+	 * 
+	 * @see #DefaultVendingMachine(BigDecimal, List)
+	 */
+	public DefaultVendingMachine() { this(BigDecimal.ZERO, new ArrayList<Shelf>()); }
+	/**
+	 * Creates a vending machine with no shelves.
+	 * 
+	 * @param reserve a reserve of money already in the machine
+	 * @see #DefaultVendingMachine(BigDecimal, List)
+	 */
 	public DefaultVendingMachine(BigDecimal reserve) { this(reserve, new ArrayList<Shelf>()); }
+	/**
+	 * Creates a new vending machine
+	 * 
+	 * @param reserve a reserve of money already in the machine
+	 * @param shelves the shelves of snacks in the machine
+	 */
 	public DefaultVendingMachine(BigDecimal reserve, List<Shelf> shelves) {
 		this.shelves = new ArrayList<Shelf>(shelves);
 		this.reserve = reserve;

@@ -10,9 +10,15 @@ import org.junit.Test;
 
 import bshields.istation.interfaces.ShelfSlot;
 import bshields.istation.interfaces.VendingMachineItem;
+import bshields.istation.models.DefaultShelf;
 import bshields.istation.models.DefaultShelfSlot;
 import bshields.istation.models.DefaultVendingMachineItem;
 
+/**
+ * JUnit tests for {@link DefaultShelfSlot}
+ * 
+ * @author Brian
+ */
 public class TestDefaultShelfSlot {
 	private ShelfSlot slot;
 	private static VendingMachineItem item1;

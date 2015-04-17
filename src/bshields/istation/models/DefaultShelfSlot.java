@@ -9,7 +9,7 @@ import bshields.istation.interfaces.ShelfSlot;
 import bshields.istation.interfaces.VendingMachineItem;
 
 /**
- * {@inheritDoc}
+ * Default implementation of {@link ShelfSlot}
  * 
  * @author Brian
  */
@@ -22,7 +22,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	 * Creates an empty shelf slot with 0 width and $0.00 price
 	 * 
 	 * @param keyCode the code for ordering an item from this slot
-	 * @see #DefaultShelfSlot(String, int, int, List)
+	 * @see #DefaultShelfSlot(String, BigDecimal, List)
 	 */
 	public DefaultShelfSlot(String keyCode) { this(keyCode, BigDecimal.ZERO, new LinkedList<VendingMachineItem>()); }
 	/**
@@ -30,7 +30,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	 * 
 	 * @param keyCode the code for ordering an item from this slot
 	 * @param price the price for items in this slot
-	 * @see #DefaultShelfSlot(String, int, int, List)
+	 * @see #DefaultShelfSlot(String, BigDecimal, List)
 	 */
 	public DefaultShelfSlot(String keyCode, BigDecimal price) { this(keyCode, price, new LinkedList<VendingMachineItem>()); }
 	/**

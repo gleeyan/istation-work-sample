@@ -6,7 +6,7 @@ import bshields.istation.interfaces.VendingMachine;
 import bshields.istation.interfaces.VendingMachineView;
 
 /**
- * {@inheritDoc}
+ * Implementation of {@link VendingMachineView} designed for use in a console environment.
  * 
  * @author Brian
  */

@@ -6,8 +6,14 @@ import org.junit.Before;
 import org.junit.Test;
 
 import bshields.istation.interfaces.VendingMachineItem;
+import bshields.istation.models.DefaultShelf;
 import bshields.istation.models.DefaultVendingMachineItem;
 
+/**
+ * JUnit tests for {@link DefaultVendingMachineItem}
+ * 
+ * @author Brian
+ */
 public class TestDefaultVendingMachineItem {
 	private VendingMachineItem item1;
 

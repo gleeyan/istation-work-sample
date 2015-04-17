@@ -17,6 +17,11 @@ import bshields.istation.models.DefaultShelf;
 import bshields.istation.models.DefaultShelfSlot;
 import bshields.istation.models.DefaultVendingMachine;
 
+/**
+ * JUnit tests for {@link DefaultVendingMachine}
+ * 
+ * @author Brian
+ */
 public class TestDefaultVendingMachine {
 	private VendingMachine machine;
 	private static List<Shelf> shelves;
