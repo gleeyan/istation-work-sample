@@ -1,5 +1,5 @@
 # Work Sample for iStation
-> 1) Create a software design for a basic vending machine. What are the functional components of the user interface? What are the possible states of the vending machine, and what are the transitions between those states? What are the functions of the vending machine? Create and submit written descriptions, flowcharts, state diagrams, etc. as necessary to document your design. We’re only interested in the functional design, not the visual/physical design.
+> 1) Create a software design for a basic vending machine. What are the functional components of the user interface? What are the possible states of the vending machine, and what are the transitions between those states? What are the functions of the vending machine? Create and submit written descriptions, flowcharts, state diagrams, etc. as necessary to document your design. Weâ€™re only interested in the functional design, not the visual/physical design.
 
 The customer needs to be able to add money to the vending machine, order an item, receive change, and request his or her money back without purchasing an item. Requesting the price of an item may also be desirable, and is easily accomplished like a real vending machine: by outputting the item's price when requesting an item you don't have enough money for.
 
@@ -12,6 +12,13 @@ An alternative command line interface would be to use commands, rather than a me
 > 2) Write Java code implementing the virtual vending machine you designed. Demonstrate your understanding of object-oriented design and good coding practices.
 
 See [/src](src/) for project source files.
+
+* A `VendingMachine` has a reserve of money, the customer's cash, and zero or more shelves.
+* A `Shelf` has zero or more slots
+* A `Slot` has a key code, a price, and zero or more items
+* A `VendingMachineItem` has a name
+
+These four interfaces and their implementations form the core of the code sample. The remaining classes manipulate them, transport data between them, assist in displaying them, or test them.
 
 > 3) Write a command-line test program that allows a user to test your vending machine. The user should be able to see a list of snacks/prices, select a snack, put money into the machine, receive money back, etc.
 
