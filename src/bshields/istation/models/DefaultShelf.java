@@ -31,4 +31,6 @@ public class DefaultShelf implements Shelf {
 	@Override
 	public ShelfSlot removeSlot(int index) { return slots.remove(index); }
 
+	@Override
+	public String toString() { return slots.toString(); }
 }
