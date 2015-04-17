@@ -12,11 +12,12 @@ import bshields.istation.controllers.VendingMachineController;
 import bshields.istation.interfaces.Shelf;
 import bshields.istation.interfaces.ShelfSlot;
 import bshields.istation.interfaces.VendingMachine;
-import bshields.istation.interfaces.VendingMachineItem;
 import bshields.istation.models.DefaultShelf;
 import bshields.istation.models.DefaultShelfSlot;
 import bshields.istation.models.DefaultVendingMachine;
 import bshields.istation.models.DefaultVendingMachineItem;
+import bshields.istation.models.Message;
+import bshields.istation.views.VendingMachineConsoleView;
 
 public class CommandLineTest {
 	private static VendingMachineController controller;
@@ -26,6 +27,50 @@ public class CommandLineTest {
 		in = new Scanner(System.in);
 		
 		setupMachine();
+		handleInput();
+	}
+	
+	private static void handleInput() {
+		int selection = 0;
+		String line = "";
+		do {
+			printMenu();
+			try { selection = Integer.parseInt(in.nextLine()); }
+			catch(NumberFormatException nfe) { continue; }
+			
+			switch (selection) {
+				case 1:
+					controller.lookAtAvailableItems();
+					out.print("Press [Enter]...");
+					in.nextLine();
+					break;
+				case 2:
+					out.print("Enter dollar amount: ");
+					line = in.nextLine();
+					line = line.replaceAll("[^0-9.]", "");
+					try { controller.addCash(new BigDecimal(Double.parseDouble(line))); }
+					catch (NumberFormatException nfe) { continue; }
+					break;
+				case 3:
+					out.print("Enter Key Code: ");
+					line = in.nextLine();
+					Message[] result = controller.requestItem(line);
+					for (Message m : result) {
+						out.println(m);
+					}
+					break;
+			}
+		} while (selection != 4);
+	}
+	
+	private static void printMenu() {
+		out.println();
+		out.printf("    Current Cash: %s\n", NumberFormat.getCurrencyInstance().format(controller.getCash().doubleValue()));
+		out.println("[1] Check Available Items");
+		out.println("[2] Add Cash");
+		out.println("[3] Enter Key Code");
+		out.println("[4] Leave");
+		out.print("> ");
 	}
 	
 	private static void setupMachine() {
@@ -57,7 +102,7 @@ public class CommandLineTest {
 				setupSlot("E8", 1.25, "Potato Strings", 7)
 			));
 		VendingMachine defaultMachine = new DefaultVendingMachine(new BigDecimal(32.25), shelves);
-		controller = new VendingMachineController(defaultMachine);
+		controller = new VendingMachineController(defaultMachine, new VendingMachineConsoleView(defaultMachine));
 	}
 	
 	private static Shelf setupShelf(ShelfSlot...slots) {
