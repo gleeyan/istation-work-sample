@@ -39,7 +39,7 @@ public class VendingMachineController {
 		}
 	}
 	
-	public void requestChange() { machine.refundCash(); }
+	public BigDecimal requestChange() { return machine.refundCash(); }
 	
 	public void addCash(BigDecimal cash) { machine.addCash(cash); }
 	

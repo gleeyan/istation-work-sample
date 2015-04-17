@@ -59,8 +59,12 @@ public class CommandLineTest {
 						out.println(m);
 					}
 					break;
+				case 4:
+					BigDecimal change = controller.requestChange();
+					out.printf("Received %s back\n", NumberFormat.getCurrencyInstance().format(change.doubleValue()));
+					break;
 			}
-		} while (selection != 4);
+		} while (selection != 5);
 	}
 	
 	private static void printMenu() {
@@ -69,7 +73,8 @@ public class CommandLineTest {
 		out.println("[1] Check Available Items");
 		out.println("[2] Add Cash");
 		out.println("[3] Enter Key Code");
-		out.println("[4] Leave");
+		out.println("[4] Refund Money");
+		out.println("[5] Leave");
 		out.print("> ");
 	}
 	
