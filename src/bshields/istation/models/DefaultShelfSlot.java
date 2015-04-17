@@ -57,7 +57,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	public VendingMachineItem removeLast() { return items.removeLast(); }
 
 	@Override
-	public VendingMachineItem peek() { return items.peek().newInstance(); }
+	public VendingMachineItem peek() { return items.peek() == null ? null : items.peek().newInstance(); }
 
 	@Override
 	public BigDecimal getPrice() { return price; }
@@ -74,6 +74,6 @@ public class DefaultShelfSlot implements ShelfSlot {
 		return String.format("[(%s) %s :: %s]  ",
 			getKeyCode(),
 			NumberFormat.getCurrencyInstance().format(getPrice().doubleValue()),
-			peek().getName());
+			peek() == null ? "" : peek().getName());
 	}
 }
