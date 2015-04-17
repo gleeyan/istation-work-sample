@@ -50,33 +50,7 @@ public class TestDefaultShelfSlot {
 		slot.addLast(item1);
 		slot.addLast(item2);
 		
-		assertEquals("Front item should be item1", item1.getName(), slot.peek().getName());
-	}
-
-	@Test
-	public void testGetPrice() {
-		slot = new DefaultShelfSlot("A1", new BigDecimal(12.5));
-		
-		assertEquals("Slot price should be same as in constructor", slot.getPrice(), new BigDecimal(12.5));
-	}
-
-	@Test
-	public void testSetPrice() {
-		slot.setPrice(new BigDecimal(12.5));
-		
-		assertEquals("Slot price should be same as in method call", slot.getPrice(), new BigDecimal(12.5));
-	}
-
-	@Test
-	public void testGetKeyCode() {
-		assertEquals("Key code should be same as constructor", "A1", slot.getKeyCode());
-	}
-
-	@Test
-	public void testSetKeyCode() {
-		slot.setKeyCode("B2");
-		
-		assertEquals("Key code should be same as method call", "B2", slot.getKeyCode());
+		assertEquals("Front item name should be item1's name", item1.getName(), slot.peek().getName());
 	}
 
 	@Test
