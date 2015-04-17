@@ -19,7 +19,7 @@ public class VendingMachineConsoleView implements VendingMachineView {
 	public void showVendingMachine() {
 		machine.getShelves().stream()
 			.forEach(shelf -> {
-				shelf.getSlots().stream().forEach(slot -> out.print(slot));
+				shelf.getSlots().stream().forEach(slot -> out.println(slot));
 				out.println();
 			});
 	}

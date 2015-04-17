@@ -71,7 +71,7 @@ public class DefaultShelfSlot implements ShelfSlot {
 	
 	@Override
 	public String toString() {
-		return String.format("[(%s) %s :: %s]  ",
+		return String.format("[%s] %s :: %s",
 			getKeyCode(),
 			NumberFormat.getCurrencyInstance().format(getPrice().doubleValue()),
 			peek() == null ? "" : peek().getName());
