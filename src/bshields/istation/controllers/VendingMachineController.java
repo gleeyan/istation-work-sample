@@ -22,7 +22,11 @@ public class VendingMachineController {
 		ShelfSlot requestedSlot = machine.getShelves().stream()
 			.flatMap(shelf -> shelf.getSlots().stream())
 			.filter(slot -> slot.getKeyCode().equalsIgnoreCase(keyCode))
-			.findFirst().get();
+			.findFirst().orElse(null);
+		
+		if (requestedSlot == null) {
+			return new Message[] { new Message(String.format("%s is an invalid key code", keyCode)) };
+		}
 		
 		if (requestedSlot.getPrice().compareTo(machine.getCash()) > 0) {
 			// Customer has put less cash into machine than requested item costs
